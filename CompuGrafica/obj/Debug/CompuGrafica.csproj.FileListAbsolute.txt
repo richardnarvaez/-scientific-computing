@@ -1,0 +1,11 @@
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\bin\Debug\CompuGrafica.exe.config
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\bin\Debug\CompuGrafica.exe
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\bin\Debug\CompuGrafica.pdb
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\obj\Debug\CompuGrafica.csproj.AssemblyReference.cache
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\obj\Debug\CompuGrafica.csproj.SuggestedBindingRedirects.cache
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\obj\Debug\CompuGrafica.Properties.Resources.resources
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\obj\Debug\CompuGrafica.csproj.GenerateResource.cache
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\obj\Debug\CompuGrafica.csproj.CoreCompileInputs.cache
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\obj\Debug\CompuGrafica.exe
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\obj\Debug\CompuGrafica.pdb
+C:\Users\ROOT\source\repos\CompuGrafica\CompuGrafica\obj\Debug\CompuGrafica.Form1.resources
