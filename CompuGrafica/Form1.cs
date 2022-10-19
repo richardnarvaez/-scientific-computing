@@ -187,6 +187,91 @@ namespace CompuGrafica
             canvas.Image = bpm;
         }
 
+        private void encenderSegmentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            Segmento s = new Segmento();
+            s.x0 = -5;
+            s.xf = 2;
+            s.y0 = 3;
+            s.yf = -3;
+            s.color0 = Color.Black;
+            s.Encender(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void crearCircunferenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Circunferencia s = new Circunferencia();
+            s.rd = 2;
+            s.x0 = 1;
+            s.y0 = 1;
+            s.color0 = Color.Red;
+            s.Encender(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void ejesXYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Segmento s = new Segmento();
+            s.x0 = -6;
+            s.xf = 4;
+            s.y0 = 0;
+            s.yf = 0;
+            s.color0 = Color.Black;
+            s.Encender(bpm);
+            Segmento sy = new Segmento();
+            sy.x0 = 0;
+            sy.xf = 0;
+            sy.y0 = -4;
+            sy.yf = 3;
+            sy.color0 = Color.Black;
+            sy.Encender(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void dibujoTareaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Segmento s = new Segmento();
+            s.x0 = -4;
+            s.xf = -4;
+            s.y0 = -2.5;
+            s.yf = 1.4;
+            s.color0 = Color.Black;
+            s.Encender(bpm);
+            s.x0 = -7;
+            s.xf = 4;
+            s.y0 = 3;
+            s.yf = -4;
+            s.color0 = Color.Black;
+            s.Encender(bpm);
+            s.x0 = -7;
+            s.xf = 4;
+            s.y0 = -4;
+            s.yf = 3;
+            s.color0 = Color.Black;
+            s.Encender(bpm);
+            canvas.Image = bpm;
+
+            Circunferencia c1 = new Circunferencia();
+            c1.rd = 2;
+            c1.x0 = -1.5;
+            c1.y0 = 1.90;
+            c1.color0 = Color.Red;
+            c1.Encender(bpm);
+            c1.rd = 0.5;
+            c1.x0 = -3;
+            c1.y0 = -0.5;
+            c1.color0 = Color.Blue;
+            c1.Encender(bpm);
+            c1.rd = 0.75;
+            c1.x0 = 3;
+            c1.y0 = 0;
+            c1.color0 = Color.Green;
+            c1.Encender(bpm);
+            canvas.Image = bpm;
+        }
+
         private void onePixelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bpm.SetPixel(screenSizeX/2, screenSizeY/2, Color.FromArgb(255, 255, 255));

@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\Circunferencia.cs" />
     <Compile Include="App\Pantalla.cs" />
+    <Compile Include="App\Segmento.cs" />
     <Compile Include="App\Vector.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
