@@ -34,6 +34,18 @@ namespace CompuGrafica.App
             }
         }
 
+        public void Apagar(Bitmap canva)
+        {
+            int sX;
+            int sY;
+            Pantalla screen = new Pantalla();
+            screen.init(x0, y0, out sX, out sY);
+            if (sX >= 0 && sX < 700 && sY >= 0 && sY < 500)
+            {
+                canva.SetPixel(sX, sY, Color.White);
+            }
+        }
+
     }
     
 }

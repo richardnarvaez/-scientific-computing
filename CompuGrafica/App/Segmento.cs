@@ -28,6 +28,5 @@ namespace CompuGrafica.App
                 t = t + dt;
             } while (t <= 1);
         }
-
     }
 }

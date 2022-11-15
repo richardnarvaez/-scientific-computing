@@ -7,12 +7,9 @@ using System.Threading.Tasks;
 
 namespace CompuGrafica.App
 {
-    internal class Circunferencia : Vector
+    internal class Lazo : Circunferencia
     {
-        public double rd;
-
-        public Circunferencia() { }
-
+        public Lazo() { }
         public void Encender(Bitmap canva)
         {
             Vector v = new Vector();
@@ -20,8 +17,8 @@ namespace CompuGrafica.App
             double dt = 0.001;
             do
             {
-                v.x0 = x0 + (rd * (Math.Cos(t)));
-                v.y0 = y0 + (rd * (Math.Sin(t)));
+                v.x0 = x0 + (rd * (Math.Sin(2*t)));
+                v.y0 = y0 + (rd * (Math.Cos(3*t)));
                 v.color0 = color0;
                 v.Encender(canva);
                 t = t + dt;
@@ -35,9 +32,10 @@ namespace CompuGrafica.App
             double dt = 0.001;
             do
             {
-                v.x0 = x0 + (rd * (Math.Cos(t)));
-                v.y0 = y0 + (rd * (Math.Sin(t)));
-                v.Apagar(canva);
+                v.x0 = x0 + (rd * (Math.Sin(2 * t)));
+                v.y0 = y0 + (rd * (Math.Cos(3 * t)));
+                v.color0 = Color.White;
+                v.Encender(canva);
                 t = t + dt;
             } while (t <= (2 * Math.PI));
         }
