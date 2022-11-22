@@ -16,7 +16,7 @@ namespace CompuGrafica.App3D
         public void Encender(Bitmap canva)
         {
             double t = 0;
-            double dt = 0.001;
+            double dt = 0.00001;
             Vector3D v3d = new Vector3D();
             v3d.color0 = color0;
             do

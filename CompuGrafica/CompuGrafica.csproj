@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App3D\Segmento3D.cs" />
+    <Compile Include="App3D\SuperficieR.cs" />
+    <Compile Include="App3D\SuperficieV.cs" />
     <Compile Include="App3D\Vector3D.cs" />
     <Compile Include="App\Circunferencia.cs" />
     <Compile Include="App\Margarita.cs" />

@@ -666,7 +666,7 @@ namespace CompuGrafica
         {
             Segmento3D xyz = new Segmento3D();
             xyz.color0 = Color.Black;
-            xyz.x0 = 0; xyz.xf = 10;
+            xyz.x0 = 0; xyz.xf = 8;
             xyz.y0 = 0; xyz.yf = 0;
             xyz.z0 = 0; xyz.zf = 0;
 
@@ -682,21 +682,161 @@ namespace CompuGrafica
             //Eje Y REAL
             xyz.x0 = 0; xyz.xf = 0;
             xyz.y0 = 0; xyz.yf = 0;
-            xyz.z0 = -5; xyz.zf = 5;
+            xyz.z0 = 0; xyz.zf = 4;
 
             xyz.Encender(bpm);
-            xyz.z0 = 0; xyz.zf = 0;
+            /*xyz.z0 = 0; xyz.zf = 0;
             xyz.color0 = Color.FromArgb(204, 208,213);
-            xyz.x0 = -5; xyz.xf = 0;
+            xyz.x0 = -8; xyz.xf = 0;
             xyz.Encender(bpm);
             xyz.x0 = 0;
-            xyz.y0 = -5; xyz.yf = 0;
+            xyz.y0 = -4; xyz.yf = 0;
             xyz.Encender(bpm);
             xyz.y0 = 0;
-            xyz.z0 = -5; xyz.zf = 0;
-            xyz.Encender(bpm);
-            
+            xyz.z0 = -4; xyz.zf = 0;
+            xyz.Encender(bpm); */
 
+
+            canvas.Image = bpm;
+        }
+
+        private void espacio3DToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Segmento3D xyz = new Segmento3D();
+            xyz.color0 = Color.Black;
+            xyz.x0 = 0; xyz.xf = 8.5;
+            xyz.y0 = 0; xyz.yf = 0;
+            xyz.z0 = 0; xyz.zf = 0;
+
+            xyz.Encender(bpm);
+
+            xyz.x0 = 0; xyz.xf = 0;
+            xyz.y0 = 0; xyz.yf = 5.5;
+            xyz.z0 = 0; xyz.zf = 0;
+
+            xyz.Encender(bpm);
+
+
+            //Eje Y REAL
+            xyz.x0 = 0; xyz.xf = 0;
+            xyz.y0 = 0; xyz.yf = 0;
+            xyz.z0 = 0; xyz.zf = 4.5;
+
+            xyz.Encender(bpm);
+
+            // OTROS
+
+            xyz.color0 = Color.FromArgb(204, 208, 213);
+
+            xyz.x0 = 0; xyz.xf = 8;
+            xyz.y0 = 0; xyz.yf = 0;
+            xyz.z0 = 4; xyz.zf = 4;
+
+            xyz.Encender(bpm);
+
+            xyz.x0 = 8; xyz.xf = 8;
+            xyz.y0 = 0; xyz.yf = 0;
+            xyz.z0 = 0; xyz.zf = 4;
+
+            xyz.Encender(bpm);
+
+
+            xyz.x0 = 0; xyz.xf = 0;
+            xyz.y0 = 0; xyz.yf = 5;
+            xyz.z0 = 4; xyz.zf = 4;
+
+            xyz.Encender(bpm);
+
+
+            xyz.x0 = 0; xyz.xf = 0;
+            xyz.y0 = 5; xyz.yf = 5;
+            xyz.z0 = 0; xyz.zf = 4;
+
+            xyz.Encender(bpm);
+
+            // ABAJO
+            xyz.x0 = 8; xyz.xf = 8;
+            xyz.y0 = 0; xyz.yf = 5;
+            xyz.z0 = 0; xyz.zf = 0;
+
+            xyz.Encender(bpm);
+
+            xyz.x0 = 0; xyz.xf = 8;
+            xyz.y0 = 5; xyz.yf = 5;
+            xyz.z0 = 0; xyz.zf = 0;
+
+            xyz.Encender(bpm);
+           
+            canvas.Image = bpm;
+        }
+
+        private void cilindroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void cilindroToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SuperficieV v = new SuperficieV();
+            v.rd = 2;
+            v.tipo = 1;
+
+            v.Encender(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void tipo2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SuperficieV v = new SuperficieV();
+            v.rd = 2;
+            v.tipo = 2;
+            v.z0 = 0;
+            v.Encender(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void primeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SuperficieR r = new SuperficieR();
+            r.tipo = 1;
+            r.color0 = Color.Black;
+            r.Encender(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void segundoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SuperficieR r = new SuperficieR();
+            r.tipo = 2;
+            r.color0 = Color.Black;
+            r.Encender(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void terceroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tipo3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SuperficieV v = new SuperficieV();
+            v.rd = 1;
+            v.tipo = 3;
+            v.z0 = -1;
+            v.Encender(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void t4HiperboloideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SuperficieV v = new SuperficieV();
+            v.rd = 1;
+            v.tipo = 4;
+            v.z0 = Math.PI;
+            v.y0 = 1.6;
+            v.Encender(bpm);
             canvas.Image = bpm;
         }
 
