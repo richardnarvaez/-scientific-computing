@@ -18,6 +18,8 @@ namespace CompuGrafica
         Bitmap bpm = new Bitmap(701, 501);
         int screenSizeX = 700, screenSizeY = 500;
         Margarita margarita = new Margarita();
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -170,7 +172,7 @@ namespace CompuGrafica
 
         private void darkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            canvas.BackColor = Color.Black;
+            canvas.BackColor = Color.FromArgb(3,105,161);
         }
 
         private void parabolaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -809,7 +811,7 @@ namespace CompuGrafica
         {
             SuperficieR r = new SuperficieR();
             r.tipo = 2;
-            r.color0 = Color.Black;
+            r.color0 = Color.White;
             r.Encender(bpm);
             canvas.Image = bpm;
         }
@@ -838,6 +840,98 @@ namespace CompuGrafica
             v.y0 = 1.6;
             v.Encender(bpm);
             canvas.Image = bpm;
+        }
+
+        private void primeroToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Color[] paleta = new Color[16];
+            paleta[0] = Color.Black;
+            paleta[1] = Color.Navy;
+            paleta[2] = Color.Green;
+            paleta[3] = Color.Aqua;
+            paleta[4] = Color.Red;
+            paleta[5] = Color.Purple;
+            paleta[6] = Color.Maroon;
+            paleta[7] = Color.LightGray;
+            paleta[8] = Color.DarkGray;
+            paleta[9] = Color.Blue;
+            paleta[10] = Color.Lime;
+            paleta[11] = Color.Silver;
+            paleta[12] = Color.Teal;
+            paleta[13] = Color.Fuchsia;
+            paleta[14] = Color.Yellow;
+            paleta[15] = Color.White;
+
+            int colorT;
+            Color c;
+            for (int i = 0; i < 700; i++) {
+                for (int j = 0; j < 500; j++) {
+                    colorT = (i*i + j*j)%15;
+                    c= paleta[colorT];
+                    bpm.SetPixel(i, j, c);
+                }
+            }
+
+            canvas.Image = bpm;
+        }
+
+        private async void segundoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Color[] paleta = new Color[16];
+            paleta[0] = Color.Black;
+            paleta[1] = Color.Navy;
+            paleta[2] = Color.Green;
+            paleta[3] = Color.Aqua;
+            paleta[4] = Color.Red;
+            paleta[5] = Color.Purple;
+            paleta[6] = Color.Maroon;
+            paleta[7] = Color.LightGray;
+            paleta[8] = Color.DarkGray;
+            paleta[9] = Color.Blue;
+            paleta[10] = Color.Lime;
+            paleta[11] = Color.Silver;
+            paleta[12] = Color.Teal;
+            paleta[13] = Color.Fuchsia;
+            paleta[14] = Color.Yellow;
+            paleta[15] = Color.White;
+
+            int colorT;
+            Color c;
+            double transform = 3;
+            for (int fps=0; fps<=100; fps++)
+            {
+                
+                
+                for (int i = 0; i < 700; i++)
+                {
+                    for (int j = 0; j < 500; j++)
+                    {
+                        // colorT = Math.Abs((int)( Math.Sin(i) + 4 * Math.Sin(j * 3.375)) % 15);
+                        // colorT = Math.Abs((int)(Math.Sinh(i)* Math.Cosh(j)) % 15);
+                        // colorT = Math.Abs((int)((i)*15) / 700);
+                        // colorT = Math.Abs((int)(Math.Sin(i) + Math.Pow(j,2)) %10);
+                        // colorT = Math.Abs((int)(Math.Sin(i) + Math.Sqrt(j*j + i*i)) % 10);
+                        // colorT = Math.Abs((int)(Math.Sqrt(j * j + i * i) ) % 14);
+                        // colorT = Math.Abs((int)(Math.Sqrt(i* i + j *j + Math.Sin(x)) )% 16);
+                        // c = paleta[colorT % 3 == 0 ? 1 : 3];
+                        //colorT = Math.Abs((int)(Math.Sqrt(i * i) + Math.Sin(j)) % 4);
+                        // colorT = Math.Abs((int)(Math.Sin(i)+ 4  * Math.Sin(j * 3.2)) % 15);
+                        // El mejor
+                        //colorT = Math.Abs((int)(Math.Sin(i*j) +3  * Math.Sin(j *3.3333 + Math.Sqrt(i))) % 15);
+                        //colorT = Math.Abs((int)(Math.Sin(i * j) + 3 * Math.Sin(j * 3.11111 + Math.Sqrt(i))));
+                        colorT = Math.Abs((int)(Math.Sin(i * j) + 3 * Math.Sin(j * transform + Math.Sqrt(i))));
+                        c = paleta[colorT];
+                        bpm.SetPixel(i, j, c);
+
+                        
+                    }
+                }
+                canvas.Image = bpm;
+                transform += 0.001212121;
+                await Task.Delay(10);
+            }
+            
+            
         }
 
         private void onePixelToolStripMenuItem_Click(object sender, EventArgs e)

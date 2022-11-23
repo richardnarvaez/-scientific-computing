@@ -90,6 +90,9 @@
             this.terceroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipo3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.t4HiperboloideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tapetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.primeroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.segundoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -394,7 +397,8 @@
             this.objeto3DToolStripMenuItem,
             this.segmento3DToolStripMenuItem,
             this.superficieToolStripMenuItem,
-            this.superficieRToolStripMenuItem});
+            this.superficieRToolStripMenuItem,
+            this.tapetesToolStripMenuItem});
             this.pARCIALIIToolStripMenuItem.Name = "pARCIALIIToolStripMenuItem";
             this.pARCIALIIToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.pARCIALIIToolStripMenuItem.Text = "PARCIAL II";
@@ -593,6 +597,29 @@
             this.t4HiperboloideToolStripMenuItem.Text = "T4 Hiperboloide";
             this.t4HiperboloideToolStripMenuItem.Click += new System.EventHandler(this.t4HiperboloideToolStripMenuItem_Click);
             // 
+            // tapetesToolStripMenuItem
+            // 
+            this.tapetesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.primeroToolStripMenuItem1,
+            this.segundoToolStripMenuItem1});
+            this.tapetesToolStripMenuItem.Name = "tapetesToolStripMenuItem";
+            this.tapetesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tapetesToolStripMenuItem.Text = "Tapetes";
+            // 
+            // primeroToolStripMenuItem1
+            // 
+            this.primeroToolStripMenuItem1.Name = "primeroToolStripMenuItem1";
+            this.primeroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.primeroToolStripMenuItem1.Text = "Primero";
+            this.primeroToolStripMenuItem1.Click += new System.EventHandler(this.primeroToolStripMenuItem1_Click);
+            // 
+            // segundoToolStripMenuItem1
+            // 
+            this.segundoToolStripMenuItem1.Name = "segundoToolStripMenuItem1";
+            this.segundoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.segundoToolStripMenuItem1.Text = "Segundo";
+            this.segundoToolStripMenuItem1.Click += new System.EventHandler(this.segundoToolStripMenuItem1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,6 +708,9 @@
         private System.Windows.Forms.ToolStripMenuItem terceroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipo3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem t4HiperboloideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tapetesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem primeroToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem segundoToolStripMenuItem1;
     }
 }
 

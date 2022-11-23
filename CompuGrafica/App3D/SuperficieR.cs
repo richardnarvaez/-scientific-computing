@@ -67,7 +67,7 @@ namespace CompuGrafica.App3D
                 {
                     v3d.x0 = x;
                     v3d.y0 = y;
-                    v3d.z0 = 0.15 * (Math.Pow(x, 2) - Math.Pow(y, 2)) - 2;
+                    v3d.z0 = 0.15 * (Math.Pow(y, 2) - Math.Pow(x, 2)) +2;
                     v3d.Encender(canva);
                     y = y + dy;
                 }
