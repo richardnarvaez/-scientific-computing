@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -906,20 +908,30 @@ namespace CompuGrafica
                 {
                     for (int j = 0; j < 500; j++)
                     {
-                        // colorT = Math.Abs((int)( Math.Sin(i) + 4 * Math.Sin(j * 3.375)) % 15);
+                        // READY
+                        //colorT = Math.Abs((int)( Math.Sin(i) + 4 * Math.Sin(j * 3.375)) % 15);
+
+                        //TRIANGULO
                         // colorT = Math.Abs((int)(Math.Sinh(i)* Math.Cosh(j)) % 15);
                         // colorT = Math.Abs((int)((i)*15) / 700);
                         // colorT = Math.Abs((int)(Math.Sin(i) + Math.Pow(j,2)) %10);
                         // colorT = Math.Abs((int)(Math.Sin(i) + Math.Sqrt(j*j + i*i)) % 10);
+
+                        // ONDA
                         // colorT = Math.Abs((int)(Math.Sqrt(j * j + i * i) ) % 14);
                         // colorT = Math.Abs((int)(Math.Sqrt(i* i + j *j + Math.Sin(x)) )% 16);
                         // c = paleta[colorT % 3 == 0 ? 1 : 3];
-                        //colorT = Math.Abs((int)(Math.Sqrt(i * i) + Math.Sin(j)) % 4);
+                        // colorT = Math.Abs((int)(Math.Sqrt(i * i) + Math.Sin(j)) % 4);
+
+                        // OTRO
                         // colorT = Math.Abs((int)(Math.Sin(i)+ 4  * Math.Sin(j * 3.2)) % 15);
+
                         // El mejor
-                        //colorT = Math.Abs((int)(Math.Sin(i*j) +3  * Math.Sin(j *3.3333 + Math.Sqrt(i))) % 15);
-                        //colorT = Math.Abs((int)(Math.Sin(i * j) + 3 * Math.Sin(j * 3.11111 + Math.Sqrt(i))));
-                        colorT = Math.Abs((int)(Math.Sin(i * j) + 3 * Math.Sin(j * transform + Math.Sqrt(i))));
+                        colorT = Math.Abs((int)(Math.Sin(i * j) + 3 * Math.Sin(j * 3.3333)) % 15);
+                        // colorT = Math.Abs((int)(Math.Sin(i*j) +3  * Math.Sin(j *3.3333 + Math.Sqrt(i))) % 15);
+                        // colorT = Math.Abs((int)(Math.Sin(i * j) + 3 * Math.Sin(j * 3.11111 + Math.Sqrt(i))));
+                        // FINAL
+                        // colorT = Math.Abs((int)(Math.Sin(i * j) + 3 * Math.Sin(j * transform + Math.Sqrt(i))));
                         c = paleta[colorT];
                         bpm.SetPixel(i, j, c);
 
@@ -932,6 +944,272 @@ namespace CompuGrafica
             }
             
             
+        }
+
+        private void claseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Color[] paleta = new Color[16];
+            for (int i = 0; i < paleta.Length; i++) {
+                int green_interpolado = (int)lagrange(i, 0, 15, 90, 130);
+                paleta[i] = Color.FromArgb(180, green_interpolado, 40);
+            }
+            // paleta[0] = Color.FromArgb(180, 90, 40);
+            // paleta[15] = Color.FromArgb(180, 130, 40);
+
+            int colorT;
+            Color c;
+
+            for (int i = 0; i < 700; i++)
+            {
+                for (int j = 0; j < 500; j++)
+                {
+                    colorT = (int)(Math.Sqrt(i) * j / 100)%15;
+                    c = paleta[colorT];
+                    bpm.SetPixel(i, j, c);
+                }
+            }
+            canvas.Image = bpm;
+        }
+
+        private void nieveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Color[] paleta = new Color[16];
+            /*for (int i = 0; i < paleta.Length; i++)
+            {
+                int green_interpolado = (int)lagrange(i, 0, 15, 0, 137);
+                paleta[i] = Color.FromArgb(107, green_interpolado, 187);
+            }*/
+            paleta[0] = Color.FromArgb(107, 137, 187);
+            paleta[1] = Color.FromArgb(52, 90, 138);
+            paleta[2] = Color.FromArgb(255, 255, 255);
+            paleta[3] = Color.FromArgb(214, 222, 250);
+
+            int colorT;
+            Color c;
+
+            for (int i = 0; i < 700; i++)
+            {
+                for (int j = 0; j < 500; j++)
+                {
+
+                    colorT = (int)(Math.E * (i / 2) + Math.PI * (Math.Pow(j, 2)) + j * i) % 6;
+                    c = paleta[colorT];
+                    bpm.SetPixel(i, j, c);
+                }
+            }
+            canvas.Image = bpm;
+        }
+
+        private void piedraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Color[] paleta = new Color[16];
+            /*for (int i = 0; i < paleta.Length; i++)
+            {
+                int green_interpolado = (int)lagrange(i, 0, 15, 0, 137);
+                paleta[i] = Color.FromArgb(107, green_interpolado, 187);
+            }*/
+            paleta[0] = Color.FromArgb(224, 244, 244);
+            paleta[1] = Color.FromArgb(136, 134, 134);
+            paleta[2] = Color.FromArgb(255, 255, 255);
+            paleta[3] = Color.FromArgb(136, 136, 136);
+
+            int colorT;
+            Color c;
+
+            for (int i = 0; i < 700; i++)
+            {
+                for (int j = 0; j < 500; j++)
+                {
+                    colorT = (int)((Math.Pow(i * (j + 70), 7) + Math.Pow(j * i * 2 / 2.5, 2)) % 15 + 1);
+                    c = paleta[colorT];
+                    bpm.SetPixel(i, j, c);
+                }
+            }
+            canvas.Image = bpm;
+        }
+
+        private void dibujoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            double x = -6;
+            double y = 0;
+            Vector vector = new Vector();
+            do
+            {
+                y = -((x - 6) * (x + 6)) / 9;
+                
+                vector.x0 = x;
+                vector.y0 = y;
+                vector.Encender(bpm);
+                x += 0.01;
+                // bpm.SetPixel(x, y, Color.Black);
+
+            } while (x <= 6);
+            canvas.Image = bpm;
+        }
+
+        private async void animacionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            double x = -6;
+            double y = 0;
+            Vector vector = new Vector();
+
+            Circunferencia s = new Circunferencia();
+            for (int i = 0; i <= 100; i++)
+            {
+                do
+                {
+                    y = -((x - 6) * (x + 6)) / 9;
+
+                    canvas.Image = bpm;
+                    s.rd = 0.5;
+                    s.x0 = x;
+                    s.y0 = y;
+                    s.color0 = Color.Red;
+                    s.Encender(bpm);
+
+                    vector.x0 = x;
+                    vector.y0 = y;
+                    vector.Encender(bpm);
+                    x += 0.01;
+
+                    // bpm.SetPixel(x, y, Color.Black);
+
+                } while (x <= 6);
+                canvas.Image = bpm;
+                await Task.Delay(1);
+            }   
+    }
+
+        private async void rebotesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vector vec = new Vector();
+            
+            Circunferencia s = new Circunferencia();
+            s.rd = 0.1;
+            s.x0 = -6;
+            s.y0 = 0;
+            s.color0 = Color.Black;
+           
+                s.x0 = s.x0 + 0.2;
+                
+                double t = -6, dt = 0.001;
+
+            do
+            {
+                vec.x0 = t;
+                vec.y0 = -(t + 3) * (t + 6) * 1.3;
+                vec.Encender(bpm);
+                t = t + dt;
+                
+
+            } while (t <= -3);
+            t = -3;
+
+            do
+            {
+                vec.x0 = t;
+                vec.y0 = -(t + 1) * (t + 3) * 1.5;
+                vec.Encender(bpm);
+                t = t + dt;
+                
+            } while (t <= -1);
+            t = -1;
+
+            do
+            {
+                vec.x0 = t;
+                vec.y0 = (-(t - 0) * (t + 1)) * 2;
+                vec.Encender(bpm);
+                t = t + dt;
+               
+            } while (t <= 0);
+            t = 0;
+
+            do
+            {
+                vec.x0 = t;
+                vec.y0 = (-(t - 0) * (t - 0.5)) * 1.5;
+                vec.Encender(bpm);
+                t = t + dt;
+               
+            } while (t <= 0.5);
+
+            dt = 0.01;
+
+
+            t = -6;
+            // ASSDASDASDASDASD
+
+            do
+            {
+                    vec.x0 = t;
+                    vec.y0 = -(t + 3) * (t + 6) * 1.3;
+                    vec.Encender(bpm);
+                    t = t + dt;
+                    canvas.Image = bpm;
+                    s.y0 = vec.y0;
+                    s.x0 = vec.x0;
+                    s.Encender(bpm);
+                    await Task.Delay(1);
+                    s.Apagar(bpm);
+
+            } while (t <= -3);
+                t = -3;
+               
+            do
+                {
+                    vec.x0 = t;
+                    vec.y0 = -(t + 1) * (t + 3) * 1.5;
+                    vec.Encender(bpm);
+                    t = t + dt;
+                canvas.Image = bpm;
+                s.y0 = vec.y0;
+                s.x0 = vec.x0;
+                s.Encender(bpm);
+                await Task.Delay(1);
+                s.Apagar(bpm);
+            } while (t <= -1);
+                t = -1;
+               
+            do
+                {
+                    vec.x0 = t;
+                    vec.y0 = (-(t - 0) * (t + 1)) * 2;
+                    vec.Encender(bpm);
+                    t = t + dt;
+                canvas.Image = bpm;
+                s.y0 = vec.y0;
+                s.x0 = vec.x0;
+                s.Encender(bpm);
+                await Task.Delay(1);
+                s.Apagar(bpm);
+            } while (t <= 0);
+                t = 0;
+               
+            do
+                {
+                    vec.x0 = t;
+                    vec.y0 = (-(t - 0) * (t - 0.5)) * 1.5;
+                    vec.Encender(bpm);
+                    t = t + dt;
+                canvas.Image = bpm;
+                s.y0 = vec.y0;
+                s.x0 = vec.x0;
+                s.Encender(bpm);
+                await Task.Delay(1);
+                s.Apagar(bpm);
+            } while (t <= 0.5);
+
+
+           
+
+
+           
+            // await Task.Delay(25);
+
+            //   canvas.Image = bpm;
+            
+
         }
 
         private void onePixelToolStripMenuItem_Click(object sender, EventArgs e)
