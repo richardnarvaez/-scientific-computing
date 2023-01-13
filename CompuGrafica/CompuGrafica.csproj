@@ -53,6 +53,7 @@
     <Compile Include="App\Circunferencia.cs" />
     <Compile Include="App\Margarita.cs" />
     <Compile Include="App\Lazo.cs" />
+    <Compile Include="App\Onda.cs" />
     <Compile Include="App\Pantalla.cs" />
     <Compile Include="App\Segmento.cs" />
     <Compile Include="App\Vector.cs" />

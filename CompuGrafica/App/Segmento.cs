@@ -28,5 +28,20 @@ namespace CompuGrafica.App
                 t = t + dt;
             } while (t <= 1);
         }
+
+        public void Apagar(Bitmap canva)
+        {
+            double t = 0;
+            double dt = 0.0001;
+            Vector v = new Vector(0, 0, Color.White);
+            do
+            {
+                v.x0 = (x0 + (xf - x0) * t);
+                v.y0 = (y0 + (yf - y0) * t);
+                v.color0 = color0;
+                v.Apagar(canva);
+                t = t + dt;
+            } while (t <= 1);
+        }
     }
 }

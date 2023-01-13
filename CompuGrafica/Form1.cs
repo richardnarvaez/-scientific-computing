@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -1212,10 +1213,370 @@ namespace CompuGrafica
 
         }
 
+        private void primeroToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            double x = -7;
+            double y = 0;
+            Vector vector = new Vector();
+            vector.color0 = Color.White;
+            do
+            {
+                y = -((x - 7) * (x + 7)) / 18;
+
+                vector.x0 = x;
+                vector.y0 = y;
+                vector.Encender(bpm);
+                x += 0.01;
+                // bpm.SetPixel(x, y, Color.Black);
+
+            } while (x <= 7);
+            canvas.Image = bpm;
+
+            
+
+        }
+
+        private void canvas_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            Point coordinates = me.Location;
+            // Console.WriteLine("EVENTO2", coordinates.X, coordinates.Y);
+        }
+
+        private void canvas_MouseDown(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("EVENTO 2: " +  e.X  + "  "+  e.Y);
+            Circunferencia cir = new Circunferencia();
+            double x = 0; double y = 0;
+            init(e.X, e.Y, out x, out y);
+            Console.WriteLine("EVENTO 2: REAL: " + x + "  " +y);
+            cir.color0 = Color.White;
+            cir.x0 = x;
+            cir.y0 = y;
+            cir.rd = 0.1;
+            cir.Encender(bpm);
+            canvas.Image = bpm;
+            // rayo
+            Segmento s = new Segmento();
+            s.color0 = Color.Yellow;
+            s.x0 = x;
+            s.y0 = y;
+            double хFinal = x;
+            double yfinal = -(((x + 7) * (x - 7)) / 18);
+            s.xf = хFinal;
+            s.yf = yfinal;
+            s.Encender(bpm);
+
+            s.color0 = Color.Red;
+            s.x0 = x;
+            s.y0 = -(((x + 7) * (x - 7)) / 18);
+            хFinal = 7;
+            if (x < 0) {
+                хFinal = 7;
+                yfinal = (9 / x) * (7 - x) + y;
+            }
+            else {
+                хFinal = -7;
+                yfinal = (9 / x) * (-7 - x) + y;
+            }
+            s.xf = хFinal;
+            s.yf = yfinal;
+            s.Encender(bpm);
+            canvas.Image = bpm;
+
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("EVENTO 1", e.X);
+           
+        }
+
         private void onePixelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bpm.SetPixel(screenSizeX/2, screenSizeY/2, Color.FromArgb(255, 255, 255));
             canvas.Image = bpm;
         }
+
+
+        private void pruebaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+          
+  
+        }
+        
+    private async void pruebaToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private double y1 = -5, y2 = 5;
+
+
+        public static int sx1 = 0;
+        public static int sy1 = 0;
+        public static int sx2 = 700;
+        public static int sy2 = 500;
+
+        private void ondaColoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Onda objO = new Onda();
+
+            objO.t = 1;
+            objO.GrafO(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void ondaGRISToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Onda objO = new Onda();
+            objO.t = 1;
+            objO.GrafO(bpm);
+            canvas.Image = bpm;
+
+        }
+
+        private async void pruebaToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Circunferencia c = new Circunferencia();
+            c.x0 = -2;
+            c.y0 = -2;
+            c.rd = 2;
+            c.color0 = Color.Red;
+            c.Encender(bpm);
+            canvas.Image = bpm;
+
+            Segmento vec = new Segmento();
+            vec.color0 = Color.Black;
+            vec.x0 = -2;
+            vec.y0 = -2;
+            // animación
+            double t = 0.05;
+            double r = 4;
+            do
+            {
+                vec.xf = -2 + 1.9 * (double)Math.Sin(t);
+                vec.yf = -2 + 1.9 * (double)Math.Cos(t);
+                vec.Encender(bpm);
+                canvas.Image = bpm;
+                await Task.Delay(100);
+
+                vec.Apagar(bpm);
+                canvas.Image = bpm;
+                t += 0.1;
+
+            } while (t <= (2 * Math.PI * 4));
+        }
+
+        private async void correccionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int centroX = 2, centroY = 1;
+            Circunferencia c = new Circunferencia();
+            c.x0 = centroX;
+            c.y0 = centroY;
+            c.rd = 2;
+            c.color0 = Color.Red;
+            c.Encender(bpm);
+            canvas.Image = bpm;
+
+            Segmento vec = new Segmento();
+            vec.color0 = Color.Black;
+            vec.x0 = centroX;
+            vec.y0 = centroY;
+            // animación
+            double t = 0.05;
+            double r = 4;
+            do
+            {
+                vec.xf = centroX + 1.9 * (double)Math.Sin(t);
+                vec.yf = centroY + 1.9 * (double)Math.Cos(t);
+                vec.Encender(bpm);
+                canvas.Image = bpm;
+                await Task.Delay(100);
+
+                vec.Apagar(bpm);
+                canvas.Image = bpm;
+                t += 0.1;
+
+            } while (t <= (2 * Math.PI * 4));
+        }
+
+        private void interferenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Onda objO = new Onda();
+
+            objO.t = 1;
+            objO.GrafoInterferencia(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void interferencia3FuntesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Onda objO = new Onda();
+
+            objO.t = 1;
+            objO.GrafoInterferencia3(bpm);
+            canvas.Image = bpm;
+            Circunferencia cir = new Circunferencia();
+            cir.color0 = Color.White;
+            cir.x0 = -1.5;
+            cir.y0 = -4;
+            cir.rd = 0.2;
+            cir.Encender(bpm);
+
+
+            cir.x0 = 0;
+            cir.y0 = 3;
+            cir.rd = 0.2;
+            cir.Encender(bpm);
+
+            cir.x0 = 0;
+            cir.y0 = -3;
+            cir.rd = 0.2;
+            cir.Encender(bpm);
+            canvas.Image = bpm;
+        }
+
+        private async void animacionToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            double t = 0;
+            Onda objO = new Onda();
+            //objO.w = 1.5;
+            //objO.v = 9.3;
+            objO.t = 0;
+            do
+            {
+                objO.GrafoInterferencia(bpm);
+
+                t += 0.02;
+                objO.t = t;
+                await Task.Delay(100);
+
+                canvas.Image = bpm;
+
+            } while (t <= 6 * Math.PI);
+        }
+
+        private async void animacion3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            double t = 0;
+            Onda objO = new Onda();
+            //objO.w = 1.5;
+            //objO.v = 9.3;
+            objO.t = 0;
+            do
+            {
+                objO.GrafoInterferencia3(bpm);
+
+                t += 0.02;
+                objO.t = t;
+                await Task.Delay(100);
+
+                canvas.Image = bpm;
+
+            } while (t <= 6 * Math.PI);
+        }
+
+        private async void inicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Onda onda = new Onda();
+            double t = 0;
+           /* do
+            {*/
+                onda.t = t;
+                onda.Onda3D(bpm);
+                canvas.Image = bpm;
+
+        /*        canvas.Refresh();
+                bpm = null;
+                bpm = new Bitmap(701, 501);
+                await Task.Delay(100);
+
+                t += 0.01;
+            }
+            while (t <= 4);*/
+        }
+
+        private void interceptarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Onda onda = new Onda();
+            double t = 0;
+            onda.t = t;
+            onda.Onda3DIntercept(bpm);
+            canvas.Image = bpm;
+        }
+
+        private void interferencia3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Onda onda = new Onda();
+            double t = 0;
+            onda.t = t;
+            onda.Onda3DIntercept3(bpm);
+            canvas.Image = bpm;
+        }
+
+        private async void animNormalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Onda onda = new Onda();
+            double t = 0;
+            do { 
+            onda.t = t;
+            onda.Onda3D(bpm);
+            canvas.Image = bpm;
+
+                canvas.Refresh();
+                    bpm = null;
+                    bpm = new Bitmap(701, 501);
+                    await Task.Delay(100);
+
+                    t += 0.01;
+                }
+                while (t <= 4);
+        }
+
+        private async void fuentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Onda onda = new Onda();
+            double t = 0;
+
+            do
+            {
+                onda.t = t;
+                onda.Onda3D(bpm);
+                canvas.Image = bpm;
+
+                canvas.Refresh();
+                bpm = null;
+                bpm = new Bitmap(701, 501);
+                await Task.Delay(100);
+
+                t += 0.01;
+            }
+            while (t <= 1);
+
+           
+            do
+            {
+                onda.t = t;
+                onda.Onda3DIntercept3(bpm);
+                canvas.Image = bpm;
+
+                canvas.Refresh();
+                bpm = null;
+                bpm = new Bitmap(701, 501);
+                await Task.Delay(100);
+
+                t += 0.01;
+            }
+            while (t <= 4);
+        }
+
+        private double x1 = -7, x2 = 7;
+        private void init(double sx, double sy, out double x, out double y)
+        {
+            x = ((x1 - x2) * (sx - sx1) / (sx1 - sx2)) + x1;
+            y = ((y2 - y1) * (sy - sy1) / (sy1 - sy2)) + y2;
+        }
+
     }
 }
