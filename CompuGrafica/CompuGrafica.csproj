@@ -51,6 +51,7 @@
     <Compile Include="App3D\SuperficieV.cs" />
     <Compile Include="App3D\Vector3D.cs" />
     <Compile Include="App\Circunferencia.cs" />
+    <Compile Include="App\CuerdaV.cs" />
     <Compile Include="App\Margarita.cs" />
     <Compile Include="App\Lazo.cs" />
     <Compile Include="App\Onda.cs" />

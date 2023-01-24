@@ -1571,6 +1571,34 @@ namespace CompuGrafica
             while (t <= 4);
         }
 
+        private async void inicialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CuerdaV cuerda = new CuerdaV();
+            cuerda.t = 0;
+            cuerda.GrafFourier(bpm);
+            canvas.Image = bpm;
+
+        }
+
+        private async void unoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            CuerdaV cuerda = new CuerdaV();
+            double t = 2;
+            do
+            {
+                cuerda.GrafFourier(bpm);
+                canvas.Image = bpm;
+                Refresh();
+                bpm = null;
+                bpm = new Bitmap(701, 501);
+                //DrawAxies();
+                await Task.Delay(200);
+                t += 0.02;
+                cuerda.t += t;
+            } while (t <= 4);
+        }
+
         private double x1 = -7, x2 = 7;
         private void init(double sx, double sy, out double x, out double y)
         {
