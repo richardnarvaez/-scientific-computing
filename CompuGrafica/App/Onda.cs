@@ -170,6 +170,64 @@ namespace CompuGrafica.App
             }
         }
 
+        public void GrafoInterferencia11(Bitmap bmp)
+        {
+            /*for (int ii = 0; ii < paleta1.Length; ii++)
+            {
+                int green_interpolado = (int)lagrange(ii, 0, 15, 100, 230);
+                int blue_interpolado = (int)lagrange(ii, 0, 15, 105, 220);
+                paleta1[ii] = Color.FromArgb(green_interpolado, green_interpolado, blue_interpolado);
+            }*/
+
+            paleta1[0] = Color.Black;
+            paleta1[1] = Color.Navy;
+            paleta1[2] = Color.Green;
+            paleta1[3] = Color.Aqua;
+            paleta1[4] = Color.Red;
+            paleta1[5] = Color.Purple;
+            paleta1[6] = Color.Maroon;
+            paleta1[7] = Color.LightGray;
+            paleta1[8] = Color.DarkGray;
+            paleta1[9] = Color.Blue;
+            paleta1[10] = Color.Lime;
+            paleta1[11] = Color.Silver;
+            paleta1[12] = Color.Teal;
+            paleta1[13] = Color.Fuchsia;
+            paleta1[14] = Color.Yellow;
+            paleta1[15] = Color.White;
+
+            int i, j, color;
+            double x, y;
+            double z;
+            double w = 1.5;
+            double v = 9.5;
+            Color c;
+
+            // Puntos elegidos
+            // recta x/2 de -5 a 5 completando 11 putos
+
+            for (i = 0; i < 700; i++)
+            {
+                for (j = 0; j < 500; j++)
+                {
+                    init(i, j, out x, out y);
+                    double res = 0;
+                    for (int pos =-5; pos<=5; pos++) {
+                       
+                        z = w * (Math.Sqrt((x - pos) * (x - pos) + (y - (pos/2.0)) * (y - (pos/2.0))) - (v * t));
+                        res += Math.Sin(z) + 1;
+
+                    }
+                    
+                    color = (int)(res <15?res: 15);
+                    c = paleta1[color];
+
+                    bmp.SetPixel(i, j, c);
+
+                }
+            }
+        }
+
         public void Onda3D(Bitmap canva)
         {
             Vector3D v3d = new Vector3D();

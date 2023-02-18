@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.ConstrainedExecution;
 using System.Security.Policy;
 using System.Text;
 using System.Threading;
@@ -1597,6 +1598,25 @@ namespace CompuGrafica
                 t += 0.02;
                 cuerda.t += t;
             } while (t <= 4);
+        }
+
+        private void principioDeHToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Onda objO = new Onda();
+
+            objO.t = 1;
+            objO.GrafoInterferencia11(bpm);
+            canvas.Image = bpm;
+            Circunferencia cir = new Circunferencia();
+            for (int pos = -5; pos <= 5; pos++)
+            {
+                cir.color0 = Color.White;
+                cir.x0 = pos;
+                cir.y0 =(pos/2.0);
+                cir.rd = 0.2;
+                cir.Encender(bpm);
+            }
+
         }
 
         private double x1 = -7, x2 = 7;

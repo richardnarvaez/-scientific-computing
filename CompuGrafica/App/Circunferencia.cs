@@ -11,7 +11,9 @@ namespace CompuGrafica.App
     {
         public double rd;
 
-        public Circunferencia() { }
+        public Circunferencia() {
+        
+        }
 
         public void Encender(Bitmap canva)
         {
